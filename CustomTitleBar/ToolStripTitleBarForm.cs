@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -9,6 +10,20 @@ namespace CustomTitleBar
         {
             get => _toolStripLabelTitle.Text;
             set => _toolStripLabelTitle.Text = value;
+        }
+        [Category("TitleBar")]
+        public int TitleBarHeight
+        {
+            get => _toolStripTitleBar.Height;
+            set => _toolStripTitleBar.Height = value;
+        }
+        [Category("TitleBar")]
+        public ToolStripItemCollection TitleBarItems => _toolStripTitleBar.Items;
+        [Category("TitleBar")]
+        public bool TitleBarAutoSize
+        {
+            get => _toolStripTitleBar.AutoSize;
+            set => _toolStripTitleBar.AutoSize = value;
         }
 
         public ToolStripTitleBarForm()
@@ -30,8 +45,6 @@ namespace CustomTitleBar
             _toolStripTitleBar.MouseDoubleClick += TitleBar_MouseDoubleClick;
             _toolStripTitleBar.Renderer = new DarkThemeRenderer();
         }
-
-
 
         private void TitleBar_MouseDown(object? sender, MouseEventArgs e)
         {
